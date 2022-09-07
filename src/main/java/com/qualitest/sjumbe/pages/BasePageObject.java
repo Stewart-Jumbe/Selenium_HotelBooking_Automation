@@ -53,12 +53,30 @@ public class BasePageObject {
     }
 
     /**
+     * Click on element with given locator when its visible and clears values in the locator
+     */
+    protected void clearValues(By locator){
+        waitForVisibilityOf(locator, 1);
+        find(locator).clear();
+    }
+
+    /**
      * Type given text into element with given locator
      */
     protected void type(String text, By locator) {
         waitForVisibilityOf(locator, 5);
         find(locator).sendKeys(text);
     }
+
+
+    /**
+     * Type given number into element with given locator
+     */
+    protected void typeNum(int num, By locator) {
+        waitForVisibilityOf(locator, 5);
+        find(locator).sendKeys(String.valueOf(num));
+    }
+
 
     protected void waitForVisibilityOf(By locator, Integer... timeOutInSeconds) {
         //timeOutInSeconds is optional
