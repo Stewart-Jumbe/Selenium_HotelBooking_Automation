@@ -3,6 +3,7 @@ package com.qualitest.sjumbe.booking;
 import com.qualitest.sjumbe.base.TestUtilities;
 import com.qualitest.sjumbe.pages.AvailableRooms;
 import com.qualitest.sjumbe.pages.BookingHomePage;
+import com.qualitest.sjumbe.pages.ExtraServices;
 import org.testng.annotations.Test;
 
 public class PositiveBooking extends TestUtilities {
@@ -24,8 +25,13 @@ public class PositiveBooking extends TestUtilities {
 
         bookingHomePage.bookNow();
 
-        AvailableRooms availableRooms = new AvailableRooms(driver,log);
+        AvailableRooms availableRooms = new AvailableRooms(driver, log);
         availableRooms.selectDeluxeAppartment();
+
+        ExtraServices extraServices = new ExtraServices(driver, log);
+        extraServices.addAirportTransfer(2);
+        extraServices.addBusinessServices(1);
+        extraServices.addSelectedServices();
 
         sleep(5000);
 
