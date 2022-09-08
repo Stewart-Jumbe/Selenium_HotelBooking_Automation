@@ -3,6 +3,7 @@ package com.qualitest.sjumbe.booking;
 import com.qualitest.sjumbe.base.TestUtilities;
 import com.qualitest.sjumbe.pages.AvailableRooms;
 import com.qualitest.sjumbe.pages.BookingHomePage;
+import com.qualitest.sjumbe.pages.BookingReviewPage;
 import com.qualitest.sjumbe.pages.ExtraServices;
 import org.testng.annotations.Test;
 
@@ -33,6 +34,11 @@ public class PositiveBooking extends TestUtilities {
         extraServices.addBusinessServices(1);
         extraServices.addSelectedServices();
 
+        BookingReviewPage bookingReviewPage = new BookingReviewPage(driver, log);
+        bookingReviewPage.addContactInfo("Stewart", "J", "stewartj@gmail.com", "07521113188", "no");
+        bookingReviewPage.selectCreditCard();
+        bookingReviewPage.agreeWithHotelPolicy();
+        bookingReviewPage.createBooking();
         sleep(5000);
 
 

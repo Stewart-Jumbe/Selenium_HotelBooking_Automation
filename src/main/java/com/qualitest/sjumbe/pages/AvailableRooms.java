@@ -9,8 +9,8 @@ public class AvailableRooms extends BasePageObject {
     //Attributes
 
     private final By frame = By.id("clock_pms_iframe_1");
-    private final By mostExpensiveRoom = By.xpath("//*[@id=\"bookable_container_15343\"]/div[2]/div[2]/table/tbody/tr[4]/td[3]/span/a");
-    private final By selectButtons = By.xpath("//i[@class='icon-plus-sign']");
+    private final By mostExpensiveRoom = By.xpath("/html/body/div[1]/div[4]/div[2]/div[2]/div[2]/table/tbody/tr[4]/td[3]/span/a");
+
 
     public AvailableRooms(WebDriver driver, Logger log) {
         super(driver, log);
