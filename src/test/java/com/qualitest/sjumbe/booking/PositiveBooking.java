@@ -1,10 +1,7 @@
 package com.qualitest.sjumbe.booking;
 
 import com.qualitest.sjumbe.base.TestUtilities;
-import com.qualitest.sjumbe.pages.AvailableRooms;
-import com.qualitest.sjumbe.pages.BookingHomePage;
-import com.qualitest.sjumbe.pages.BookingReviewPage;
-import com.qualitest.sjumbe.pages.ExtraServices;
+import com.qualitest.sjumbe.pages.*;
 import org.testng.annotations.Test;
 
 public class PositiveBooking extends TestUtilities {
@@ -39,6 +36,13 @@ public class PositiveBooking extends TestUtilities {
         bookingReviewPage.selectCreditCard();
         bookingReviewPage.agreeWithHotelPolicy();
         bookingReviewPage.createBooking();
+
+        PaymentPage paymentPage = new PaymentPage(driver, log);
+        paymentPage.enterCardNumber("5425233430109903");
+        paymentPage.selectCreditCardBrand("master");
+        paymentPage.selectCardExpiryMonthAndYear(04, 2023);
+        paymentPage.enterBillingAddress("70 Eden Steet", "75214", "San Diago", "California", "us");
+        paymentPage.payDeposit();
         sleep(5000);
 
 

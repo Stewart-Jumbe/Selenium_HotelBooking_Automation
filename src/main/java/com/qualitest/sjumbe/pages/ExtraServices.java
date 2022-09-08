@@ -24,7 +24,7 @@ public class ExtraServices extends BasePageObject {
 
         waitForVisibilityOf(airportTransferLocatorFull, 2);
         click(airportTransferLocatorFull);
-        typeNum(number, airportTransferLocatorFull);
+        typeNum((double) number, airportTransferLocatorFull);
         log.info("Added " + number + " " + "Airport Transfer(s)");
 
     }
@@ -34,7 +34,7 @@ public class ExtraServices extends BasePageObject {
 
         waitForVisibilityOf(businessServiceLocator, 2);
         click(businessServiceLocator);
-        typeNum(number, businessServiceLocator);
+        typeNum((double) number, businessServiceLocator);
         log.info("Added " + number + " " + "Business service(s)");
 
     }

@@ -2,13 +2,12 @@ package com.qualitest.sjumbe.pages;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.devtools.v85.systeminfo.model.VideoDecodeAcceleratorCapability;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
@@ -55,7 +54,7 @@ public class BasePageObject {
     /**
      * Click on element with given locator when its visible and clears values in the locator
      */
-    protected void clearValues(By locator){
+    protected void clearValues(By locator) {
         waitForVisibilityOf(locator, 1);
         find(locator).clear();
     }
@@ -72,7 +71,7 @@ public class BasePageObject {
     /**
      * Type given number into element with given locator
      */
-    protected void typeNum(int num, By locator) {
+    protected void typeNum(Double num, By locator) {
         waitForVisibilityOf(locator, 5);
         find(locator).sendKeys(String.valueOf(num));
     }
@@ -200,8 +199,8 @@ public class BasePageObject {
     /**
      * Press Key using Actions class
      */
-    public void pressKeyWithActions(Keys key){
-        log.info("Pressing " +key.name() + " using Actions class");
+    public void pressKeyWithActions(Keys key) {
+        log.info("Pressing " + key.name() + " using Actions class");
         Actions action = new Actions(driver);
         action.sendKeys(key).build().perform();
     }
@@ -209,7 +208,7 @@ public class BasePageObject {
     /**
      * Scroll to the bottom
      */
-    public void scrollToBottom(){
+    public void scrollToBottom() {
         log.info("Scrolling to the bottom of the page");
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
@@ -219,7 +218,7 @@ public class BasePageObject {
     /**
      * Perform Drag and Drop 'from' element 'to' element
      */
-    protected void performDragandDrop(By from, By to){
+    protected void performDragandDrop(By from, By to) {
         //Actions action = new Actions (driver);
         //action.dragAndDrop(find(from), find(to).build.perform();
 
@@ -247,22 +246,46 @@ public class BasePageObject {
     /**
      * Perform mouse hover over element
      */
-    protected void hoverOverElement(WebElement element){
+    protected void hoverOverElement(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element).build().perform();
     }
 
-    /** Add Cookie */
-    public void setCookie(Cookie ck){
-        log.info("Adding coockie "+ ck.getName());
+    /**
+     * Add Cookie
+     */
+    public void setCookie(Cookie ck) {
+        log.info("Adding coockie " + ck.getName());
         driver.manage().addCookie(ck);
         log.info("Cookie added");
     }
 
-    /** Get cookie value using cookie name*/
-    public String getCookie(String name){
+    /**
+     * Get cookie value using cookie name
+     */
+    public String getCookie(String name) {
         log.info("Getting value of cookie ");
         return driver.manage().getCookieNamed(name).getValue();
+    }
+
+
+    public void selectOption(String optionValue, By dropdownLocator) {
+
+        log.info("Selecting option " + optionValue + " from dropdown");
+        WebElement dropdownElement = find(dropdownLocator);
+        Select dropdown = new Select(dropdownElement);//We can use the select class because the dropdowns are in the select tag
+
+        //There are three ways to use Select class
+        // #1
+        //dropdown.selectByIndex(optionNum)
+
+        // #2, "" is added to efffectively convert the int into a string
+        log.info("Selecting option with value: " + optionValue);
+        dropdown.selectByValue("" + optionValue);
+
+        // #3
+        //dropdown.selectByVisibleText("Option " + optionNum)
+
     }
 
 }
