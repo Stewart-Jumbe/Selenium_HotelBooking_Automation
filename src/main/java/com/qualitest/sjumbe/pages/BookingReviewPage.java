@@ -32,10 +32,69 @@ public class BookingReviewPage extends BasePageObject {
     private final By iframeLocator = By.xpath("/html/body/div/div/div[3]/div/div/div/div/iframe");
 
     //booked room details
-    private final By roomDetailsLocator = By.xpath("//div[@class='col-sm-5']");
+    private final By arrivalDateTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]");
+    private final By stayLengthTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/div[2]");
+    private final By departureTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[3]/div[2]");
+    private final By numberOfAdultsTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[4]/div[2]");
+    private final By roomTypeTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[5]/div[2]");
+    private final By rateTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[6]/div[2]/text()");
+    private final By guaranteeOptionTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[7]/div[2]");
+    private final By roomPriceTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[8]/div[2]");
+    private final By extraServicesTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[9]/div[2]");
+    private final By vatTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[10]/div[2]");
+    private final By totalCostTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[11]/div[2]/h3");
+    private final By requiredDepositTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[12]/div[2]");
 
     public BookingReviewPage(WebDriver driver, Logger log) {
         super(driver, log);
+    }
+
+    public String getArrivalDateTextLocator() {
+        return getAttribute(arrivalDateTextLocator, "innerText");
+    }
+
+    public String getStayLengthTextLocator() {
+        return getAttribute(stayLengthTextLocator, "innerText");
+    }
+
+    public String getDepartureTextLocator() {
+        return getAttribute(departureTextLocator, "innerText");
+    }
+
+    public String getNumberOfAdultsTextLocator() {
+        return getAttribute(numberOfAdultsTextLocator, "innerText");
+    }
+
+    public String getRoomTypeTextLocator() {
+        return getAttribute(roomTypeTextLocator, "innerText");
+    }
+
+    public String getRateTextLocator() {
+        return getAttribute(rateTextLocator, "innerText");
+    }
+
+    public String getGuaranteeOptionTextLocator() {
+        return getAttribute(guaranteeOptionTextLocator, "innerText");
+    }
+
+    public String getRoomPriceTextLocator() {
+        return getAttribute(roomPriceTextLocator, "innerText");
+    }
+
+    public String getExtraServicesTextLocator() {
+        return getAttribute(extraServicesTextLocator, "innerText");
+    }
+
+    public String getVatTextLocator() {
+        return getAttribute(vatTextLocator, "innerText");
+    }
+
+    public String getTotalCostTextLocator() {
+        return getAttribute(totalCostTextLocator, "innerText");
+    }
+
+    public String getRequiredDepositTextLocator() {
+        return getAttribute(requiredDepositTextLocator, "innerText");
     }
 
     public void addContactInfo(String firstName, String lastName, String emailAddress, String phoneNumber, String ownBooking) {

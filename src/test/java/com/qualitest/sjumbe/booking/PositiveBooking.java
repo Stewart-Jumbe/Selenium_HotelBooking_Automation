@@ -35,6 +35,8 @@ public class PositiveBooking extends TestUtilities {
         bookingReviewPage.addContactInfo("Stewart", "J", "stewartj@gmail.com", "07521113188", "no");
         bookingReviewPage.selectCreditCard();
         bookingReviewPage.agreeWithHotelPolicy();
+        //TODO verify booking details
+        
         bookingReviewPage.createBooking();
 
         PaymentPage paymentPage = new PaymentPage(driver, log);
