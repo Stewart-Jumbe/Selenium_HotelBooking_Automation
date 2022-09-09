@@ -31,6 +31,9 @@ public class BookingReviewPage extends BasePageObject {
     //iframe locator
     private final By iframeLocator = By.xpath("/html/body/div/div/div[3]/div/div/div/div/iframe");
 
+    //booked room details
+    private final By roomDetailsLocator = By.xpath("//div[@class='col-sm-5']");
+
     public BookingReviewPage(WebDriver driver, Logger log) {
         super(driver, log);
     }

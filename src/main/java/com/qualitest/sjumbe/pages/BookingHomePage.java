@@ -8,12 +8,12 @@ public class BookingHomePage extends BasePageObject {
 
     //Attributes
 
-    String Url = "https://www.clock-software.com/demo-clockpms/index.html";
     private final By arrivalDateBox = By.id("date-start");
     private final By numberOfNightsBox = By.id("to-place");
     private final By numberOfAdultsBox = By.xpath("//input[@name='wbe_product[adult_count]']");
     private final By numberOfChildrenBox = By.xpath("//input[@name='wbe_product[children_count]']");
     private final By bookNowbutton = By.xpath("//input[@value='Book now !']");
+    String Url = "https://www.clock-software.com/demo-clockpms/index.html";
 
     //Constructor matching parent
     public BookingHomePage(WebDriver driver, Logger log) {
@@ -27,8 +27,6 @@ public class BookingHomePage extends BasePageObject {
     }
 
     public void enterArrivalDate(String ddmmyyyy) {
-        log.info("enter date in format dd-mm-yyyy, e.g 01-02-2022");
-
         //clearing values in the box
         clearValues(arrivalDateBox);
 

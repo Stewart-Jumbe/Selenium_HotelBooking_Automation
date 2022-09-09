@@ -24,6 +24,7 @@ public class PositiveBooking extends TestUtilities {
         bookingHomePage.bookNow();
 
         AvailableRooms availableRooms = new AvailableRooms(driver, log);
+        availableRooms.checkAvailableRooms();
         availableRooms.selectDeluxeAppartment();
 
         ExtraServices extraServices = new ExtraServices(driver, log);
@@ -42,7 +43,7 @@ public class PositiveBooking extends TestUtilities {
         paymentPage.selectCreditCardBrand("master");
         paymentPage.selectCardExpiryMonthAndYear(04, 2023);
         paymentPage.enterBillingAddress("70 Eden Steet", "75214", "San Diago", "California", "us");
-        paymentPage.payDeposit();
+        //paymentPage.payDeposit();
         sleep(5000);
 
 
