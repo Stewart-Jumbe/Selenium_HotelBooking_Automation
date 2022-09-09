@@ -115,6 +115,13 @@ public class BasePageObject {
     }
 
     /**
+     * Read the Attribute given a locator
+     */
+    public String getAttribute(By locator, String attributeName) {
+        return find(locator).getAttribute(attributeName);
+    }
+
+    /**
      * Get URL of current page from browser
      */
     public String getCurrrentUrl() {

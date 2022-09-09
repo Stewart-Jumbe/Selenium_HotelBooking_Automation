@@ -6,18 +6,27 @@ import org.openqa.selenium.WebDriver;
 
 public class ChangeBookingPage extends BasePageObject {
     //Attributes
-    private final By arrivalDateLocator = By.xpath("/html/body/div[1]/div[5]/div/form/div[1]/div[1]/div/input");
-    private final By numberOfNightsLocator = By.xpath("/html/body/div[1]/div[5]/div/form/div[1]/div[2]/div/input");
-    private final By numberOfAdultsLocator = By.xpath("/html/body/div[1]/div[5]/div/form/div[2]/div/input");
-    private final By seachForAvailableRoomsButton = By.xpath("/html/body/div[1]/div[5]/div/form/div[6]/div/input");
+    private final By arrivalDateLocator = By.xpath("/html/body/div[1]/div[4]/div/form/div[1]/div[1]/div/input");
+
+    private final By numberOfNightsLocator = By.xpath("/html/body/div[1]/div[4]/div/form/div[1]/div[2]/div/input");
+    private final By numberOfAdultsLocator = By.xpath("/html/body/div[1]/div[4]/div/form/div[2]/div/input");
+    private final By seachForAvailableRoomsButton = By.xpath("/html/body/div[1]/div[4]/div/form/div[6]/div/input");
+    private final By frame = By.xpath("/html/body/div/div/div[3]/div/div/div/div/iframe");
 
     public ChangeBookingPage(WebDriver driver, Logger log) {
         super(driver, log);
     }
 
+    public void changeArrivalDate() {
+
+        click(arrivalDateLocator);
+        type("13 Sep 2022", arrivalDateLocator);
+    }
+
     public void incrementArrivalDate() {
+
         //Getting current Arrival date
-        String currentDate = getText(arrivalDateLocator);
+        String currentDate = getAttribute(arrivalDateLocator, "value");
 
         //incrementing date by 1;
         int currentDateAsInt = Integer.parseInt(currentDate.substring(0, 2));
@@ -28,6 +37,7 @@ public class ChangeBookingPage extends BasePageObject {
         //Entering incremented date
         click(arrivalDateLocator);
         log.info("entering date " + incrementedDateAsString + stringPartCurrentDate);
+        clearValues(arrivalDateLocator);
         type(incrementedDateAsString + stringPartCurrentDate, arrivalDateLocator);
 
         //Searching for availble rooms again

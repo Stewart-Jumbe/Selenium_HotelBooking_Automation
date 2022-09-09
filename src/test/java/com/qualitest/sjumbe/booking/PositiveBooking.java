@@ -16,16 +16,15 @@ public class PositiveBooking extends TestUtilities {
 
 
         //Entering booking details
-        bookingHomePage.enterArrivalDate("12-09-2022");
+        bookingHomePage.enterArrivalDate("01-10-2022");
         bookingHomePage.enterNumberOfNights(4);
         bookingHomePage.enterNumberOfAdults(2);
-        sleep(3000);
-
+        //sleep(3000);
         bookingHomePage.bookNow();
 
         AvailableRooms availableRooms = new AvailableRooms(driver, log);
         availableRooms.checkAvailableRooms();
-        availableRooms.selectDeluxeAppartment();
+        availableRooms.selectDeluxeApartment();
 
         ExtraServices extraServices = new ExtraServices(driver, log);
         extraServices.addAirportTransfer(2);
