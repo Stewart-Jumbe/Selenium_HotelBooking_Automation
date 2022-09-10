@@ -1,0 +1,2 @@
+arrivalDate,stayLength,departureDate,numberOfAdults,roomType,roomRate,guaranteeOption,roomsCost,extraServicesCost,vat,totalCost,requiredDeposit
+01 Oct 2022,4,05 Oct 2022,2,Deluxe Appartment,Rack Rate Standard,Full Prepayment,"1,640.00 EUR",90.00 EUR,108.45 EUR,"1,730.00 EUR","1,640.00 EUR"

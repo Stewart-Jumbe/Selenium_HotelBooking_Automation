@@ -17,14 +17,14 @@ public class CsvDataProviders {
     public static Iterator<Object[]> csvReader(Method method) {
         List<Object[]> list = new ArrayList<Object[]>();
 
-        String pathname=System.getProperty("user.dir")
+        String pathname = System.getProperty("user.dir")
                 + File.separator + "src"
                 + File.separator + "test"
                 + File.separator + "resources"
                 + File.separator + "DataProviders"
                 + File.separator + method.getDeclaringClass().getSimpleName()
                 + File.separator + method.getName() + ".csv";
-        //"//src//test//resources//DataProviders//NegativeLoginTest//negativeLoginTest.csv";
+
 
         File file = new File(pathname);
 

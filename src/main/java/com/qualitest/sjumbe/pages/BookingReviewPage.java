@@ -37,9 +37,9 @@ public class BookingReviewPage extends BasePageObject {
     private final By departureTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[3]/div[2]");
     private final By numberOfAdultsTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[4]/div[2]");
     private final By roomTypeTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[5]/div[2]");
-    private final By rateTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[6]/div[2]/text()");
+    private final By rateTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[6]/div[2]");
     private final By guaranteeOptionTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[7]/div[2]");
-    private final By roomPriceTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[8]/div[2]");
+    private final By roomCostTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[8]/div[2]");
     private final By extraServicesTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[9]/div[2]");
     private final By vatTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[10]/div[2]");
     private final By totalCostTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[11]/div[2]/h3");
@@ -70,6 +70,7 @@ public class BookingReviewPage extends BasePageObject {
     }
 
     public String getRateTextLocator() {
+
         return getAttribute(rateTextLocator, "innerText");
     }
 
@@ -77,8 +78,8 @@ public class BookingReviewPage extends BasePageObject {
         return getAttribute(guaranteeOptionTextLocator, "innerText");
     }
 
-    public String getRoomPriceTextLocator() {
-        return getAttribute(roomPriceTextLocator, "innerText");
+    public String getRoomCostTextLocator() {
+        return getAttribute(roomCostTextLocator, "innerText");
     }
 
     public String getExtraServicesTextLocator() {
