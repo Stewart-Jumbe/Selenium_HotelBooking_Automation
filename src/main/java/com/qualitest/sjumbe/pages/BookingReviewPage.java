@@ -3,6 +3,11 @@ package com.qualitest.sjumbe.pages;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BookingReviewPage extends BasePageObject {
 
@@ -44,9 +49,32 @@ public class BookingReviewPage extends BasePageObject {
     private final By vatTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[10]/div[2]");
     private final By totalCostTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[11]/div[2]/h3");
     private final By requiredDepositTextLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/div[12]/div[2]");
+    private final By detailsNameColLocator = By.xpath("//div[@class='col-sm-5']");
+    private final By detailsDataColLocator = By.xpath("//div[@class='col-sm-7']");
+
+
+    private final Map<String, String> detailsMap = new HashMap<>();
 
     public BookingReviewPage(WebDriver driver, Logger log) {
         super(driver, log);
+    }
+
+    public Map<String, String> getDetailsMap() {
+//TODO Delete this
+        List<WebElement> detailsNamecolLocatorsList = findAll(detailsNameColLocator);
+        List<WebElement> detailsDatacolLocatorsList = findAll(detailsDataColLocator);
+
+        for (int i = 0; i <= 11; i++) {
+            detailsMap.put(detailsNamecolLocatorsList.get(i).getAttribute("innerText"), detailsDatacolLocatorsList.get(i).getAttribute("innerText"));
+        }
+        return detailsMap;
+    }
+
+    public String getInformationFromDetailsMap(String key) {
+        //TODO Delete this
+        getDetailsMap();
+        log.info("Information requested is :" + detailsMap.get(key));
+        return detailsMap.get(key);
     }
 
     public String getArrivalDateTextLocator() {
@@ -126,6 +154,7 @@ public class BookingReviewPage extends BasePageObject {
     }
 
     public void agreeWithHotelPolicy() {
+        log.info("Agreeing to hotel policy");
         click(bookingAgreedLocator);
     }
 

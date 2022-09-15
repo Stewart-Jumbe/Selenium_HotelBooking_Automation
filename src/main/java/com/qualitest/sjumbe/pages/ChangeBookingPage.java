@@ -13,9 +13,11 @@ public class ChangeBookingPage extends BasePageObject {
     private final By seachForAvailableRoomsButton = By.xpath("/html/body/div[1]/div[4]/div/form/div[6]/div/input");
     private final By frame = By.xpath("/html/body/div/div/div[3]/div/div/div/div/iframe");
 
+
     public ChangeBookingPage(WebDriver driver, Logger log) {
         super(driver, log);
     }
+
 
     public void changeArrivalDate() {
 
@@ -25,24 +27,50 @@ public class ChangeBookingPage extends BasePageObject {
 
     public void incrementArrivalDate() {
 
+
         //Getting current Arrival date
         String currentDate = getAttribute(arrivalDateLocator, "value");
 
+        System.out.println("length of current date is " + currentDate.length());
+
         //incrementing date by 1;
-        int currentDateAsInt = Integer.parseInt(currentDate.substring(0, 2));
-        String stringPartCurrentDate = currentDate.substring(2);
-        int incrementedDate = ++currentDateAsInt;
-        String incrementedDateAsString = String.valueOf(incrementedDate);
 
-        //Entering incremented date
-        click(arrivalDateLocator);
-        log.info("entering date " + incrementedDateAsString + stringPartCurrentDate);
-        clearValues(arrivalDateLocator);
-        type(incrementedDateAsString + stringPartCurrentDate, arrivalDateLocator);
+        int currentDateAsInt;
+        String stringPartCurrentDate;
+        if (currentDate.length() == 10) {
+            currentDateAsInt = Integer.parseInt(currentDate.substring(0, 1));
+            stringPartCurrentDate = currentDate.substring(1);
 
-        //Searching for availble rooms again
+            int incrementedDate = ++currentDateAsInt;
+            String incrementedDateAsString = String.valueOf(incrementedDate);
+            String newDate = incrementedDateAsString + stringPartCurrentDate;
+
+            //Entering incremented date
+            click(arrivalDateLocator);
+            log.info("entering date " + newDate);
+            clearValues(arrivalDateLocator);
+            type(newDate, arrivalDateLocator);
+
+
+        } else {
+            currentDateAsInt = Integer.parseInt(currentDate.substring(0, 2));
+            stringPartCurrentDate = currentDate.substring(2);
+
+            int incrementedDate = ++currentDateAsInt;
+            String incrementedDateAsString = String.valueOf(incrementedDate);
+            String newDate = incrementedDateAsString + stringPartCurrentDate;
+
+            //Entering incremented date
+            click(arrivalDateLocator);
+            log.info("entering date " + newDate);
+            clearValues(arrivalDateLocator);
+            type(newDate, arrivalDateLocator);
+
+
+        }
         log.info("clicking Search For Available Rooms Button");
         click(seachForAvailableRoomsButton);
+
 
     }
 

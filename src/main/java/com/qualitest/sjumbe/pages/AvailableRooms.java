@@ -29,7 +29,7 @@ public class AvailableRooms extends BasePageObject {
         //finding all room webelements
 
 
-        Boolean deluxeIsPresent = null;
+        Boolean deluxeIsPresent = false;
         do {
             log.info("Getting all available rooms");
 
