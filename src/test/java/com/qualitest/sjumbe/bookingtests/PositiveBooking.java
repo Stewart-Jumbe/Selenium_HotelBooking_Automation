@@ -38,7 +38,7 @@ public class PositiveBooking extends TestUtilities {
 
 
         //Entering booking details
-        bookingHomePage.enterArrivalDate("15-12-2022");
+        bookingHomePage.enterArrivalDate("18-01-2023");
         bookingHomePage.enterNumberOfNights(4);
         bookingHomePage.enterNumberOfAdults(2);
         //sleep(3000);
@@ -151,19 +151,19 @@ public class PositiveBooking extends TestUtilities {
         paymentPage.selectCreditCardBrand("master");
         paymentPage.selectCardExpiryMonthAndYear(04, 2023);
         paymentPage.enterBillingAddress("70 Eden Steet", "75214", "San Diago", "California", "us");
-        //paymentPage.payDeposit();
+        paymentPage.payDeposit();
 
-//        CompletedBookingPage completedBookingPage = new CompletedBookingPage(driver, log);
-//        //        //Checking Required Deposit
-//        String actualThankYouForYourBookingText = completedBookingPage.getThankYouBookingText();
-//        Assert.assertTrue(actualThankYouForYourBookingText.contains(expectedThankYouForYourBookingText),
-//                "actualThankYouForYourBookingText does not contain csv ThankYouForYourBookingText \ncsv ThankYouForYourBookingText: "
-//                        + expectedThankYouForYourBookingText + "\nactual ThankYouForYourBookingText: " + actualThankYouForYourBookingText);
-//
-//        String actualBookingConfirmationEmailText = completedBookingPage.getCheckYourEmailMessage();
-//        Assert.assertTrue(actualBookingConfirmationEmailText.contains(expectedBookingConfirmationEmailText),
-//                "actualBookingConfirmationText does not contain csv BookingConfirmationEmailText \ncsv BookingConfirmationEmailText: "
-//                        + expectedBookingConfirmationEmailText + "\nactual BookingConfirmationEmailText: " + actualBookingConfirmationEmailText);
+        CompletedBookingPage completedBookingPage = new CompletedBookingPage(driver, log);
+        //        //Checking Required Deposit
+        String actualThankYouForYourBookingText = completedBookingPage.getThankYouBookingText();
+        Assert.assertTrue(actualThankYouForYourBookingText.contains(expectedThankYouForYourBookingText),
+                "actualThankYouForYourBookingText does not contain csv ThankYouForYourBookingText \ncsv ThankYouForYourBookingText: "
+                        + expectedThankYouForYourBookingText + "\nactual ThankYouForYourBookingText: " + actualThankYouForYourBookingText);
+
+        String actualBookingConfirmationEmailText = completedBookingPage.getCheckYourEmailMessage();
+        Assert.assertTrue(actualBookingConfirmationEmailText.contains(expectedBookingConfirmationEmailText),
+                "actualBookingConfirmationText does not contain csv BookingConfirmationEmailText \ncsv BookingConfirmationEmailText: "
+                        + expectedBookingConfirmationEmailText + "\nactual BookingConfirmationEmailText: " + actualBookingConfirmationEmailText);
 
         sleep(5000);
 

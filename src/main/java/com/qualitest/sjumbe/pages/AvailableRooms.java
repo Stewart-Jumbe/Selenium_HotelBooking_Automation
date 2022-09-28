@@ -44,7 +44,7 @@ public class AvailableRooms extends BasePageObject {
 
                 if (roomName.contains("Deluxe")) {
                     deluxeIsPresent = true;//needed to exit while loop
-                    log.info("Delux room is present is " + deluxeIsPresent);
+                    log.info("Deluxe room is present is " + deluxeIsPresent);
                     log.info("this room is available: "
                             + "\n*******************************" + "\n"
                             + roomContainersList.get(i).getAttribute("innerText")
