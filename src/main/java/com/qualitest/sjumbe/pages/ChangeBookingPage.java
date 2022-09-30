@@ -21,6 +21,12 @@ public class ChangeBookingPage extends BasePageObject {
     }
 
 
+    public void bookingWarningShown() {
+        click(numberOfNightsLocator);
+        driver.findElement(numberOfNightsLocator).submit();
+
+    }
+
     public void changeArrivalDate(String date) {
 
         //Entering incremented date

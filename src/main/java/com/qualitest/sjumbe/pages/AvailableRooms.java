@@ -16,13 +16,27 @@ public class AvailableRooms extends BasePageObject {
     private final By availableRoomContainerLocator = By.xpath("//div[@class='bookable-container bookable-location-3864']");
     private final By selectRoomButtonLocator = By.xpath("//a[@class='btn btn-success '] ");
 
+    private final By roomBookingAlertLocator = By.xpath("//div[@class='alert alert-danger']");
+
     public AvailableRooms(WebDriver driver, Logger log) {
         super(driver, log);
     }
 
 
+    public void checkForBookingAlert() {
+        Boolean alertShown = driver.findElement(roomBookingAlertLocator).isDisplayed();
+        if (alertShown == true) {
+            ChangeBookingPage changeBookingPage = new ChangeBookingPage(driver, log);
+            changeBookingPage.bookingWarningShown();
+        }
+    }
+
     public void checkAvailableRooms() {
         switchToFrame(frame);
+
+        //Checking if "we no longer accept booking for this date" message is shown
+        checkForBookingAlert();
+
         //finding all room webelements
 
 
