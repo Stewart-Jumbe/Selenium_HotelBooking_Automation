@@ -4,6 +4,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.time.LocalDate;
+
 public class BookingHomePage extends BasePageObject {
 
     //Attributes
@@ -26,17 +28,15 @@ public class BookingHomePage extends BasePageObject {
         log.info("Page opened :-)");
     }
 
-    public void enterArrivalDate(String ddmmyyyy) {
-        //clearing values in the box
+    public void enterArrivalDate() {
+
+        LocalDate today = LocalDate.now();// arrival date is whatever the current date is
+
         clearValues(arrivalDateBox);
+        log.info("entering date " + today);
+        click(arrivalDateBox);
 
-        if (ddmmyyyy.length() == 10) {
-            log.info("entering date " + ddmmyyyy);
-            click(arrivalDateBox);
-            type(ddmmyyyy, arrivalDateBox);
-        }
-        log.info("Date format should be dd-mm-yyyy, e.g 01-02-2022");
-
+        type(formatDateAsddMMyyyy(today), arrivalDateBox);
     }
 
     public void enterNumberOfNights(int num_of_nights) {

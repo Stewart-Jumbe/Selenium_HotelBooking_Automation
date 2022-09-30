@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -293,6 +295,21 @@ public class BasePageObject {
         // #3
         //dropdown.selectByVisibleText("Option " + optionNum)
 
+    }
+
+    /**
+     * @param date
+     * @return date in format dd.MM.yyyy e.g 22.12.1992
+     */
+    public String formatDateAsddMMyyyy(LocalDate date) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return dateTimeFormatter.format(date);
+    }
+
+
+    public String formatDateAsddMMMyyyy(LocalDate date) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+        return dateTimeFormatter.format(date);
     }
 
 }

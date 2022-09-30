@@ -12,12 +12,9 @@ public class AvailableRooms extends BasePageObject {
     //Attributes
 
     private final By frame = By.id("clock_pms_iframe_1");
-    private final By mostExpensiveRoom = By.xpath("/html/body/div[1]/div[4]/div[2]/div[2]/div[2]/table/tbody/tr[4]/td[3]/span/a");
-    private final By backButtonLocator = By.xpath("/html/body/div[1]/div[1]/div[1]/a");
-
+    private final By backButtonLocator = By.xpath("//a[@class='btn btn-primary btn-lg']");
     private final By availableRoomContainerLocator = By.xpath("//div[@class='bookable-container bookable-location-3864']");
     private final By selectRoomButtonLocator = By.xpath("//a[@class='btn btn-success '] ");
-    private final By deluxeRoomLocator = By.xpath("//*[@id='bookable_container_15343']");
 
     public AvailableRooms(WebDriver driver, Logger log) {
         super(driver, log);
