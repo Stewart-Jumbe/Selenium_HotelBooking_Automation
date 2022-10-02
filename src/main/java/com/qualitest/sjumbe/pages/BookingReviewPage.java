@@ -11,19 +11,12 @@ import java.util.Map;
 
 public class BookingReviewPage extends BasePageObject {
 
-    //Attributes
-    private final By removeRoomLocator = By.xpath("/html/body/div[1]/div[3]/div[3]/div[1]/div[2]/a");
-    private final By addMoreRoomsLocator = By.xpath("//*[contains(text(),'Add more rooms')]");
-    private final By previousCustomerLocator = By.xpath("/html/body/div[1]/div[3]/div[2]/div[2]/a");
-    private final By previousPageButtonLocator = By.xpath("/html/body/div[1]/div[1]/div[1]/a");
-
     //Contact info locators
-    private final By emailAddressLocator = By.xpath("/html/body/div[1]/div[3]/div[2]/form/div[2]/div[2]/div[1]/div[1]/div/input");
-    private final By lastNameLocator = By.xpath("/html/body/div[1]/div[3]/div[2]/form/div[2]/div[2]/div[1]/div[2]/div/input");
-    private final By firstNameLocator = By.xpath("/html/body/div[1]/div[3]/div[2]/form/div[2]/div[2]/div[1]/div[3]/div/input");
-
-    private final By phoneNumberLocator = By.xpath("/html/body/div[1]/div[3]/div[2]/form/div[2]/div[2]/div[1]/div[4]/div/input");
-    private final By bookingForSomeoneElseLocator = By.xpath("/html/body/div[1]/div[3]/div[2]/form/div[2]/div[2]/div[3]/div/div/label/input[2]");
+    private final By emailAddressLocator = By.xpath("//input[@title='E-mail']");
+    private final By lastNameLocator = By.xpath("//input[@title='Last name']");
+    private final By firstNameLocator = By.xpath("//input[@title='First name']");
+    private final By phoneNumberLocator = By.xpath("//input[@title='Phone']");
+    private final By bookingForSomeoneElseLocator = By.xpath("//input[@class='with-contact-person']");
 
     //Payment Method
     private final By creditCardButtonLocator = By.xpath("/html/body/div[1]/div[3]/div[2]/form/div[4]/div[2]/div/div[3]/label/input");

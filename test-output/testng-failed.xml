@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="SeleniumBookingAutomation(failed)">
+  <test thread-count="5" name="SeleniumJavaAssessment(failed)">
     <classes>
       <class name="com.qualitest.sjumbe.bookingtests.PositiveBooking">
         <methods>
@@ -11,5 +11,5 @@
         </methods>
       </class> <!-- com.qualitest.sjumbe.bookingtests.PositiveBooking -->
     </classes>
-  </test> <!-- SeleniumBookingAutomation(failed) -->
+  </test> <!-- SeleniumJavaAssessment(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

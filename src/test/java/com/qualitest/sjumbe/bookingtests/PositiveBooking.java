@@ -4,6 +4,7 @@ import com.qualitest.sjumbe.base.CsvDataProviders;
 import com.qualitest.sjumbe.base.TestUtilities;
 import com.qualitest.sjumbe.pages.AvailableRooms;
 import com.qualitest.sjumbe.pages.BookingHomePage;
+import com.qualitest.sjumbe.pages.BookingReviewPage;
 import com.qualitest.sjumbe.pages.ExtraServices;
 import org.testng.annotations.Test;
 
@@ -41,7 +42,7 @@ public class PositiveBooking extends TestUtilities {
 
         //Entering booking details
         bookingHomePage.enterArrivalDate();
-        bookingHomePage.enterNumberOfNights(4);
+        bookingHomePage.enterNumberOfNights(1);
         bookingHomePage.enterNumberOfAdults(2);
         //sleep(3000);
         bookingHomePage.bookNow();
@@ -54,11 +55,11 @@ public class PositiveBooking extends TestUtilities {
         extraServices.addAirportTransfer(2);
         extraServices.addBusinessServices(1);
         extraServices.addSelectedServices();
-//
-//        BookingReviewPage bookingReviewPage = new BookingReviewPage(driver, log);
-//        bookingReviewPage.addContactInfo("Stewart", "J", "stewartj@gmail.com", "07521113188", "no");
-//        bookingReviewPage.selectCreditCard();
-//        bookingReviewPage.agreeWithHotelPolicy();
+
+        BookingReviewPage bookingReviewPage = new BookingReviewPage(driver, log);
+        bookingReviewPage.addContactInfo("Stewart", "J", "stewartj@gmail.com", "07521113188", "no");
+        bookingReviewPage.selectCreditCard();
+        bookingReviewPage.agreeWithHotelPolicy();
 
         //TODO verify booking details
 //        //Validation of Booking

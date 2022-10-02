@@ -8,8 +8,7 @@ public class ExtraServices extends BasePageObject {
 
     //Attributes
 
-    private final By airportTransferLocatorFull2 = By.xpath("/html/body/div/form/div[2]/div/div/div[2]/div[1]/div[3]/input");
-    private final By airportTransferLocatorFull = By.id("form_charge_template_schema_batch_charges_c223674d0c60ac68295996671973c74b_qty");
+    private final By airportTransferLocatorFull = By.xpath("/html/body/div/form/div[2]/div/div/div[2]/div[1]/div[3]/input");
     private final By businessServiceLocator = By.xpath("/html/body/div[1]/form/div[3]/div/div/div[2]/div[1]/div[3]/input");
     private final By dryCleaningLocator = By.xpath("/html/body/div[1]/form/div[4]/div/div/div[2]/div[1]/div[3]/input");
     private final By fitnessLocator = By.xpath("/html/body/div[1]/form/div[5]/div/div/div[2]/div[1]/div[3]/input");
@@ -23,7 +22,7 @@ public class ExtraServices extends BasePageObject {
 
     public void addAirportTransfer(int number) {
 
-        waitForVisibilityOf(airportTransferLocatorFull, 2);
+        //waitForVisibilityOf(airportTransferLocatorFull, 2);
         click(airportTransferLocatorFull);
         typeNum((double) number, airportTransferLocatorFull);
         log.info("Added " + number + " " + "Airport Transfer(s)");

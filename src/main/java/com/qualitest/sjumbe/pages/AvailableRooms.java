@@ -24,11 +24,19 @@ public class AvailableRooms extends BasePageObject {
 
 
     public void checkForBookingAlert() {
-        Boolean alertShown = driver.findElement(roomBookingAlertLocator).isDisplayed();
-        if (alertShown == true) {
+
+        try{
+        if (driver.findElement(roomBookingAlertLocator).isDisplayed() == true) {
             ChangeBookingPage changeBookingPage = new ChangeBookingPage(driver, log);
             changeBookingPage.bookingWarningShown();
+        }}
+        catch (Exception e){
+            log.info("alert shown is: false");
+
+        }finally {
+            lookForDeluxeRoom();
         }
+
     }
 
     public void checkAvailableRooms() {
@@ -40,6 +48,12 @@ public class AvailableRooms extends BasePageObject {
         //finding all room webelements
 
 
+
+
+
+    }
+
+    private void lookForDeluxeRoom() {
         Boolean deluxeIsPresent = false;
         do {
             log.info("Getting all available rooms");
